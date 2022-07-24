@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(TimoKoerber\LaravelJsonSeeder\JsonDatabaseSeeder::class);
         // $this->call(UserSeeder::class);
     }
 }

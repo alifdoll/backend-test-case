@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "product_id": 1,
+        "image": "logitech-h111.png"
+    },
+    {
+        "id": 2,
+        "product_id": 1,
+        "image": "logitech-h111-headset-stereo-single-jack-3-5mm.png"
+    },
+    {
+        "id": 3,
+        "product_id": 2,
+        "image": "philips-rice-cooker-inner-pot-2l-bakuhanseki-hd3110-33.png"
+    },
+    {
+        "id": 4,
+        "product_id": 2,
+        "image": "philips.png"
+    },
+    {
+        "id": 5,
+        "product_id": 2,
+        "image": "philips-rice-cooker.png"
+    },
+    {
+        "id": 6,
+        "product_id": 3,
+        "image": "iphone-12-64gb-128gb-256gb.png"
+    },
+    {
+        "id": 7,
+        "product_id": 4,
+        "image": "papan-alat-bantu-push-up.png"
+    },
+    {
+        "id": 8,
+        "product_id": 5,
+        "image": "jim-joker-sandal-slide-kulit-pria-bold-2s-hitam-hitam.png"
+    },
+    {
+        "id": 9,
+        "product_id": 6,
+        "image": "samsung-galaxy-s8_0.png"
+    },
+    {
+        "id": 10,
+        "product_id": 6,
+        "image": "samsung-galaxy-s8_1.png"
+    },
+    {
+        "id": 11,
+        "product_id": 6,
+        "image": "samsung-galaxy-s8_2.png"
+    }
+]

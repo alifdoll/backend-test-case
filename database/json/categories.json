@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Elektronik"
+    },
+    {
+        "id": 2,
+        "name": "Fashion Pria"
+    },
+    {
+        "id": 3,
+        "name": "Fashion Wanita"
+    },
+    {
+        "id": 4,
+        "name": "Handphone & Tablet"
+    },
+    {
+        "id": 5,
+        "name": "Olahraga"
+    }
+]
