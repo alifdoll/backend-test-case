@@ -14,8 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/categories', 'CategoryController@index');
-
-
-Route::resource('/products', 'CategoryController');
+Route::resource('/categories', 'CategoryController');
 Route::resource('/products', 'ProductController');
