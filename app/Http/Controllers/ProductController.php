@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Asset;
 use App\Http\Requests\ValidateApi;
+use App\Http\Resources\AssetCollection;
 use App\Http\Resources\ProductCollection;
 use App\Product;
 use Dotenv\Validator;
@@ -11,6 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\VarDumper\Cloner\Data;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -172,6 +174,22 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $assets = $product->assets;
+
+        foreach ($assets as $img) {
+            $path = public_path('uploads/images/' . $img->image);
+            if (File::exists($path)) {
+                File::delete($path);
+            }
+        }
+
+        $product->delete();
+
+
+        return response()->json([
+            'status' => 'Success',
+            'message' => 'Product Deleted'
+        ], 200);
     }
 }
