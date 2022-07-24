@@ -139,7 +139,29 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+
+        $name = $request->input('name');
+        $slug = Str::slug($name);
+        $category_id = $request->input('category_id');
+        $price = $request->input('price');
+
+        $product->name = $name == '' ? $product->name : $name;
+        $product->slug = $slug;
+        $product->price =  $price == '' ? $product->price : $price;
+        $product->category_id = $category_id == '' ? $product->category_id : $category_id;
+
+        $saved_p = $product->save();
+        if (!$saved_p) {
+            return response()->json([
+                'status' => 'Error',
+                'message' => 'Products not inserted'
+            ], 500);
+        }
+        return response()->json([
+            'status' => 'Success',
+            'message' => 'Data inserted'
+        ], 200);
     }
 
     /**

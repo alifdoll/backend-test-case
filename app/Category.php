@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 class Category extends Model
 {
     public $timestamps = false;
+    protected $fillable = ['id'];
     public function products()
     {
         return $this->hasMany('App\Product');
