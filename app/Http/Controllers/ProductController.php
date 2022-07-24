@@ -237,4 +237,35 @@ class ProductController extends Controller
             'Message' => 'Fail to upload image'
         ], 400);
     }
+
+    public function deleteAssets($id)
+    {
+        $asset = Asset::find($id);
+        if ($asset == null) {
+            return response()->json(
+                [
+                    'status' => 'Fail',
+                    'message' => 'Asset not found'
+                ],
+                500
+            );
+        }
+
+        $path = public_path('uploads/images/' . $asset->image);
+
+        if (File::exists($path)) {
+            File::delete($path);
+
+            $asset->delete();
+            return response()->json([
+                'status' => 'Success',
+                'message' => 'Assets successfully deleted'
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'Fail',
+                'message' => 'fail to delete'
+            ], 404);
+        }
+    }
 }

@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/categories', 'CategoryController');
 Route::resource('/products', 'ProductController');
 Route::post('/assets', 'ProductController@addAssets');
+Route::delete('/assets/{id}', 'ProductController@deleteAssets');
