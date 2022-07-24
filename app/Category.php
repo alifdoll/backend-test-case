@@ -21,6 +21,5 @@ class Category extends Model
             ->groupBy('categories.id')
             ->orderBy('jum', 'desc')->get();
         return $cat;
-        // return $this->hasMany('App\Product')->orderBy('category_id');
     }
 }

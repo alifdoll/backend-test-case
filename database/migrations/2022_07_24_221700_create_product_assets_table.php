@@ -15,8 +15,9 @@ class CreateProductAssetsTable extends Migration
     {
         Schema::create('product_assets', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreignId('product_id')->constrained('products')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->string('image');
         });
     }

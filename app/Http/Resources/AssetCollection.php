@@ -16,7 +16,7 @@ class AssetCollection extends JsonResource
     public function toArray($request)
     {
         return [
-            'image' => $this->image
+            'image' => asset('/uploads/images/' . $this->image)
         ];
     }
 }
