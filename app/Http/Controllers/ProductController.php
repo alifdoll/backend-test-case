@@ -192,4 +192,49 @@ class ProductController extends Controller
             'message' => 'Product Deleted'
         ], 200);
     }
+
+    public function addAssets(Request $request)
+    {
+        $image = $request->file('images');
+        $product_id = $request->input('product_id');
+
+        if ($image == null) {
+            return response()->json([
+                'status' => 'Fail',
+                'message' => 'Please add an image'
+            ], 422);
+        }
+
+        if ($product_id == '') {
+            return response()->json([
+                'status' => 'Fail',
+                'message' => 'Please input a product id'
+            ], 422);
+        }
+
+        $name = Product::find($product_id)->name;
+        $count = count(Asset::where('product_id', $product_id)->get());
+
+        $mime = str_replace('image/', '.', $image->getMimeType());
+        $image_new_name = Str::slug($name) . '_' . $count . $mime;
+        $assets = new Asset;
+        $assets->product_id = $product_id;
+        $assets->image = $image_new_name;
+        $saved = $assets->save();
+
+        if ($saved) {
+
+            $image->move('uploads/images/', $image_new_name);
+
+            return response()->json([
+                'status' => 'Success',
+                'message' => 'Image successfully added'
+            ], 200);
+        }
+
+        return response()->json([
+            'status' => 'Failed',
+            'Message' => 'Fail to upload image'
+        ], 400);
+    }
 }
